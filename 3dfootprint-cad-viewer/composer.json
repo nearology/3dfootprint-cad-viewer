@@ -1,0 +1,20 @@
+{
+	"name": "nearology/3dfootprint-cad-viewer",
+	"description": "WooCommerce product JSON upload and access plugin.",
+	"type": "wordpress-plugin",
+	"license": "GPL-2.0-or-later",
+	"authors": [
+		{
+			"name": "thenearology@gmail.com",
+			"homepage": "https://aminx.me"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"ThreeDFootprint\\CadViewer\\": "src/"
+		}
+	},
+	"require": {
+		"php": ">=7.4"
+	}
+}
