@@ -8,6 +8,7 @@
 namespace ThreeDFootprint\CadViewer\Core;
 
 use ThreeDFootprint\CadViewer\Admin\ProductJsonMetaBox;
+use ThreeDFootprint\CadViewer\Frontend\ProductViewer;
 use ThreeDFootprint\CadViewer\Services\ProductJsonService;
 use ThreeDFootprint\CadViewer\Services\UploadDirectory;
 
@@ -42,6 +43,13 @@ final class Plugin {
 	private $meta_box;
 
 	/**
+	 * Product frontend viewer.
+	 *
+	 * @var ProductViewer
+	 */
+	private $product_viewer;
+
+	/**
 	 * Return the plugin singleton.
 	 *
 	 * @return self
@@ -58,9 +66,10 @@ final class Plugin {
 	 * Create the plugin service graph.
 	 */
 	private function __construct() {
-		$upload_directory   = new UploadDirectory();
-		$this->json_service = new ProductJsonService( $upload_directory );
-		$this->meta_box     = new ProductJsonMetaBox( $this->json_service );
+		$upload_directory     = new UploadDirectory();
+		$this->json_service   = new ProductJsonService( $upload_directory );
+		$this->meta_box       = new ProductJsonMetaBox( $this->json_service );
+		$this->product_viewer = new ProductViewer( $this->json_service );
 	}
 
 	/**
@@ -79,6 +88,10 @@ final class Plugin {
 
 		if ( is_admin() && $this->is_woocommerce_active() ) {
 			$this->meta_box->register();
+		}
+
+		if ( ! is_admin() && $this->is_woocommerce_active() ) {
+			$this->product_viewer->register();
 		}
 	}
 
