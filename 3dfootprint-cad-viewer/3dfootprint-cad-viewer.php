@@ -3,7 +3,7 @@
  * Plugin Name: 3DFootprint CAD Viewer
  * Plugin URI: https://aminx.me
  * Description: Upload, validate, store, retrieve, and render one JSON viewer for each WooCommerce product.
- * Version: 1.1.0
+ * Version: 1.1.1
  * Author: thenearology@gmail.com
  * Author URI: https://aminx.me
  * License: GPL-2.0-or-later
@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'THREE_D_FOOTPRINT_CAD_VIEWER_VERSION', '1.1.0' );
+define( 'THREE_D_FOOTPRINT_CAD_VIEWER_VERSION', '1.1.1' );
 define( 'THREE_D_FOOTPRINT_CAD_VIEWER_FILE', __FILE__ );
 define( 'THREE_D_FOOTPRINT_CAD_VIEWER_PATH', plugin_dir_path( __FILE__ ) );
 define( 'THREE_D_FOOTPRINT_CAD_VIEWER_URL', plugin_dir_url( __FILE__ ) );

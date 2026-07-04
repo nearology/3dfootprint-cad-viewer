@@ -42,12 +42,34 @@
 		return null;
 	}
 
+	function claimThemeImageSection(root) {
+		const imageSection = root.closest('.product-section-top-left');
+
+		if (!imageSection) {
+			return;
+		}
+
+		imageSection.classList.add('product-section-top-left--json-viewer');
+
+		if (root.parentElement !== imageSection) {
+			imageSection.appendChild(root);
+		}
+
+		Array.from(imageSection.children).forEach(function (child) {
+			if (child !== root) {
+				child.remove();
+			}
+		});
+	}
+
 	function initViewer(root) {
 		const data = getViewerJson(root);
 
 		if (!data || typeof data !== 'object') {
 			return;
 		}
+
+		claimThemeImageSection(root);
 
 		if (typeof window.Konva === 'undefined') {
 			window.console.error('Product JSON viewer requires Konva.');
