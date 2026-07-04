@@ -2,22 +2,9 @@
 	<script type="application/json" data-product-json-viewer-payload>(($JSON))</script>
 
 	<div class="product-json-viewer__main">
-		<div class="product-json-viewer__box" data-product-json-viewer-pcb-box>
-			<div class="product-json-viewer__header">
-				<span class="product-json-viewer__label product-json-viewer__label--pcb">PCB</span>
-				<div class="product-json-viewer__controls">
-					<button class="product-json-viewer__button" type="button" data-product-json-viewer-fit-pcb>Fit</button>
-					<span class="product-json-viewer__zoom" data-product-json-viewer-pcb-zoom>100%</span>
-				</div>
-			</div>
-			<div class="product-json-viewer__canvas-wrap">
-				<div class="product-json-viewer__canvas" data-product-json-viewer-pcb-canvas></div>
-			</div>
-		</div>
-
 		<div class="product-json-viewer__box" data-product-json-viewer-sch-box>
 			<div class="product-json-viewer__header">
-				<span class="product-json-viewer__label product-json-viewer__label--sch">SCHEMATIC</span>
+				<span class="product-json-viewer__label product-json-viewer__label--sch">سیمبل</span>
 				<div class="product-json-viewer__controls">
 					<button class="product-json-viewer__button" type="button" data-product-json-viewer-fit-sch>Fit</button>
 					<span class="product-json-viewer__zoom" data-product-json-viewer-sch-zoom>100%</span>
@@ -27,10 +14,22 @@
 				<div class="product-json-viewer__canvas" data-product-json-viewer-sch-canvas></div>
 			</div>
 		</div>
+
+		<div class="product-json-viewer__box" data-product-json-viewer-pcb-box>
+			<div class="product-json-viewer__header">
+				<span class="product-json-viewer__label product-json-viewer__label--pcb">فوت پرینت</span>
+				<div class="product-json-viewer__controls">
+					<button class="product-json-viewer__button" type="button" data-product-json-viewer-fit-pcb>Fit</button>
+					<span class="product-json-viewer__zoom" data-product-json-viewer-pcb-zoom>100%</span>
+				</div>
+			</div>
+			<div class="product-json-viewer__canvas-wrap">
+				<div class="product-json-viewer__canvas" data-product-json-viewer-pcb-canvas></div>
+			</div>
+		</div>
 	</div>
 
 	<div class="product-json-viewer__loading" data-product-json-viewer-loading>
 		<span>PARSING...</span>
 	</div>
-	<div class="product-json-viewer__tooltip" data-product-json-viewer-tooltip></div>
 </div>

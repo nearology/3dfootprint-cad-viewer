@@ -108,9 +108,15 @@
 				return;
 			}
 
+			const targetRect = event.currentTarget && event.currentTarget.getBoundingClientRect
+				? event.currentTarget.getBoundingClientRect()
+				: null;
+			const left = typeof event.clientX === 'number' ? event.clientX : targetRect.left;
+			const top = typeof event.clientY === 'number' ? event.clientY : targetRect.bottom;
+
 			tip.textContent = text;
-			tip.style.left = event.clientX + 14 + 'px';
-			tip.style.top = event.clientY + 14 + 'px';
+			tip.style.left = left + 14 + 'px';
+			tip.style.top = top + 14 + 'px';
 			tip.style.display = 'block';
 		}
 

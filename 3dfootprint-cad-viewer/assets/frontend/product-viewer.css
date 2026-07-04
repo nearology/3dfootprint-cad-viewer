@@ -6,8 +6,10 @@
 	--pjv-accent-sch: #4fc3f7;
 	--pjv-text: #e6edf3;
 	--pjv-dim: #8b949e;
-	--pjv-box-w: calc((100% - 0.5rem) / 2);
-	--pjv-box-h: 20.7rem;
+	--pjv-viewer-gap: 1rem;
+	--pjv-viewer-pad: 0.35rem;
+	--pjv-box-w: calc((100% - var(--pjv-viewer-gap)) / 2);
+	--pjv-box-h: 28.5rem;
 	position: relative;
 	width: 100%;
 	max-width: 100%;
@@ -25,11 +27,11 @@
 .product-json-viewer__main {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 0.5rem;
+	gap: var(--pjv-viewer-gap);
 	align-items: flex-start;
 	justify-content: center;
+	padding: var(--pjv-viewer-pad);
 	color: var(--pjv-text);
-	font-family: "Share Tech Mono", "Courier New", monospace;
 }
 
 .product-json-viewer__box {
@@ -47,7 +49,7 @@
 
 .product-section-top-left--json-viewer {
 	display: block;
-	min-height: var(--pjv-box-h, 20.7rem);
+	min-height: calc(var(--pjv-box-h, 28.5rem) + (var(--pjv-viewer-pad, 0.35rem) * 2));
 	padding: 0 !important;
 	border: 0 !important;
 	background: transparent !important;
@@ -63,7 +65,7 @@
 
 .product-section-top-left--json-viewer .product-json-viewer__main {
 	height: 100%;
-	min-height: var(--pjv-box-h);
+	min-height: calc(var(--pjv-box-h) + (var(--pjv-viewer-pad) * 2));
 	align-items: stretch;
 	flex-wrap: nowrap;
 }
@@ -71,7 +73,7 @@
 .product-section-top-left--json-viewer .product-json-viewer__box {
 	flex: 1 1 0;
 	width: auto;
-	height: auto;
+	height: var(--pjv-box-h);
 	min-height: var(--pjv-box-h);
 }
 
@@ -79,33 +81,34 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	min-height: 2.1rem;
-	padding: 0 10px;
-	background: var(--pjv-panel);
-	border-bottom: 1px solid var(--pjv-border);
+	min-height: 56px;
+	padding: 0 24px;
+	background: #ffffff;
+	border-bottom: 1px solid #e4e4e4;
 	flex-shrink: 0;
 }
 
-.product-json-viewer__header {
-	display: none;
-}
-
 .product-json-viewer__label {
-	font-size: 9px;
-	letter-spacing: 2.5px;
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	color: #2f2f2f;
+	font-size: 18px;
 	font-weight: 700;
+	letter-spacing: 0;
+	line-height: 1;
 }
 
 .product-json-viewer__label--pcb {
-	color: var(--pjv-accent-pcb);
+	color: #2f2f2f;
 }
 
 .product-json-viewer__label--sch {
-	color: var(--pjv-accent-sch);
+	color: #2f2f2f;
 }
 
 .product-json-viewer__controls {
-	display: flex;
+	display: none;
 	align-items: center;
 	gap: 6px;
 }
@@ -182,23 +185,6 @@
 	50% {
 		opacity: 1;
 	}
-}
-
-.product-json-viewer__tooltip {
-	position: fixed;
-	pointer-events: none;
-	background: var(--pjv-panel);
-	border: 1px solid var(--pjv-accent-pcb);
-	color: var(--pjv-text);
-	font-family: "Share Tech Mono", "Courier New", monospace;
-	font-size: 10px;
-	padding: 5px 10px;
-	border-radius: 3px;
-	white-space: pre;
-	display: none;
-	z-index: 100;
-	box-shadow: 0 4px 20px rgba(0, 229, 160, 0.15);
-	line-height: 1.6;
 }
 
 .product-json-viewer__empty {
