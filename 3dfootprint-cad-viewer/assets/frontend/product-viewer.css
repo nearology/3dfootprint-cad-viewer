@@ -1,0 +1,184 @@
+.product-json-viewer-gallery {
+	--pjv-bg: #0d1117;
+	--pjv-panel: #161b22;
+	--pjv-border: #21262d;
+	--pjv-accent-pcb: #00e5a0;
+	--pjv-accent-sch: #4fc3f7;
+	--pjv-text: #e6edf3;
+	--pjv-dim: #8b949e;
+	--pjv-box-w: 20rem;
+	--pjv-box-h: 18rem;
+	position: relative;
+	max-width: 100%;
+	opacity: 1 !important;
+}
+
+.product-json-viewer-gallery *,
+.product-json-viewer-gallery *::before,
+.product-json-viewer-gallery *::after {
+	box-sizing: border-box;
+}
+
+.product-json-viewer__main {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	align-items: flex-start;
+	justify-content: center;
+	color: var(--pjv-text);
+	font-family: "Share Tech Mono", "Courier New", monospace;
+}
+
+.product-json-viewer__box {
+	width: min(var(--pjv-box-w), 100%);
+	height: var(--pjv-box-h);
+	display: flex;
+	flex-direction: column;
+	border: 1px solid var(--pjv-border);
+	border-radius: 6px;
+	overflow: hidden;
+	background: #090b0c;
+	box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.04), 0 8px 32px rgba(0, 0, 0, 0.5);
+	flex-shrink: 0;
+}
+
+.product-json-viewer__header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	min-height: 2.1rem;
+	padding: 0 10px;
+	background: var(--pjv-panel);
+	border-bottom: 1px solid var(--pjv-border);
+	flex-shrink: 0;
+}
+
+.product-json-viewer__label {
+	font-size: 9px;
+	letter-spacing: 2.5px;
+	font-weight: 700;
+}
+
+.product-json-viewer__label--pcb {
+	color: var(--pjv-accent-pcb);
+}
+
+.product-json-viewer__label--sch {
+	color: var(--pjv-accent-sch);
+}
+
+.product-json-viewer__controls {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.product-json-viewer__canvas-wrap {
+	flex: 1;
+	position: relative;
+	overflow: hidden;
+}
+
+.product-json-viewer__canvas-wrap > div {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	z-index: 1;
+}
+
+.product-json-viewer__button {
+	background: transparent;
+	border: 1px solid var(--pjv-border);
+	color: var(--pjv-dim);
+	font-family: inherit;
+	font-size: 9px;
+	font-weight: 700;
+	letter-spacing: 1px;
+	padding: 2px 8px;
+	border-radius: 3px;
+	cursor: pointer;
+	transition: border-color 0.15s, color 0.15s;
+	line-height: 1.5;
+}
+
+.product-json-viewer__button:hover,
+.product-json-viewer__button:focus {
+	border-color: var(--pjv-accent-pcb);
+	color: var(--pjv-accent-pcb);
+}
+
+.product-json-viewer__zoom {
+	font-size: 9px;
+	letter-spacing: 1.5px;
+	color: var(--pjv-accent-pcb);
+	min-width: 34px;
+	text-align: right;
+}
+
+.product-json-viewer__loading {
+	display: none;
+	position: absolute;
+	inset: 0;
+	z-index: 60;
+	background: rgba(13, 17, 23, 0.85);
+	align-items: center;
+	justify-content: center;
+	font-family: "Share Tech Mono", "Courier New", monospace;
+}
+
+.product-json-viewer__loading.is-active {
+	display: flex;
+}
+
+.product-json-viewer__loading span {
+	font-size: 13px;
+	letter-spacing: 4px;
+	color: var(--pjv-accent-pcb);
+	animation: product-json-viewer-pulse 1s ease-in-out infinite;
+}
+
+@keyframes product-json-viewer-pulse {
+	0%,
+	100% {
+		opacity: 0.2;
+	}
+	50% {
+		opacity: 1;
+	}
+}
+
+.product-json-viewer__tooltip {
+	position: fixed;
+	pointer-events: none;
+	background: var(--pjv-panel);
+	border: 1px solid var(--pjv-accent-pcb);
+	color: var(--pjv-text);
+	font-family: "Share Tech Mono", "Courier New", monospace;
+	font-size: 10px;
+	padding: 5px 10px;
+	border-radius: 3px;
+	white-space: pre;
+	display: none;
+	z-index: 100;
+	box-shadow: 0 4px 20px rgba(0, 229, 160, 0.15);
+	line-height: 1.6;
+}
+
+.product-json-viewer__empty {
+	padding: 1rem;
+	border: 1px solid var(--pjv-border, #21262d);
+	border-radius: 6px;
+	background: #f8f8f8;
+	color: #333;
+}
+
+@media (max-width: 768px) {
+	.product-json-viewer-gallery {
+		float: none;
+		width: 100%;
+	}
+
+	.product-json-viewer__box {
+		width: 100%;
+	}
+}
